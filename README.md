@@ -1,8 +1,8 @@
-### GITNOTES
+### COMPANY WEBSITE
 
 ### About
 
-This application is used to manage repository files of Github users. It Users, with Files and its Content. It also allows Users View/Add/Edit/Remove files on Github Repository.
+This application is just a website for a start up based company
 
 ### Dependencies Used
 
@@ -10,6 +10,8 @@ This application is used to manage repository files of Github users. It Users, w
 
 - React
 - React DOM
+- Ant Design
+- Styled Components
 
 ### Dev Dependencies
 
