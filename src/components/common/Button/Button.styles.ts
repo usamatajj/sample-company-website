@@ -53,7 +53,6 @@ export const CommonButton = styled(Button)`
     height: ${({ height }: Props) => `${height}px`};
     width: ${({ width, block }: Props) =>
       !block && (width ? `${width}%` : '10%')};
-
     // Dynamic Styles
     ${({ type, danger }) => type === 'primary' && !danger && PrimaryStyles}
     ${({ type, danger }) => type === 'link' && !danger && LinkStyles}

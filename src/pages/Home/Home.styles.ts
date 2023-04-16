@@ -82,22 +82,29 @@ export const RequestService = styled.div`
 
 export const WelcomeHeading = styled.div`
   color: ${WHITE};
-  font-size: 5rem;
-  line-height: 6rem;
+  font-size: clamp(2rem, 4vw, 5rem);
+
   font-weight: 500;
 `;
 
 export const DescriptionHeading = styled.div`
   color: ${WHITE};
   font-weight: 400;
-  line-height: 2.4rem;
-  font-size: 1.5rem;
+  font-size: clamp(0.8rem, 2vw, 1.5rem);
   width: 80%;
 `;
 
 export const OurServices = styled.div`
   display: flex;
   justify-content: space-between;
+  @media screen and (max-width: 800px) {
+    & {
+      flex-direction: column;
+      text-align: center;
+      width: 100%;
+      padding: 0;
+    }
+  }
   align-items: center;
   padding-left: 12%;
   padding-right: 12%;
@@ -105,19 +112,29 @@ export const OurServices = styled.div`
 `;
 
 export const OurServicesHeading = styled.h1`
-  font-size: 4rem;
+  font-size: clamp(3rem, 3.5vw, 4rem);
   width: 40%;
 `;
 export const ServicesDescription = styled.p`
   color: ${GREY};
-  font-size: 1.2rem;
+  font-size: clamp(0.6rem, 2.8vw, 1.2rem);
   width: 42%;
 `;
 
 export const ServicesContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  @media screen and (max-width: 800px) {
+    & {
+      flex-direction: column;
+      align-content: center;
+      align-items: center;
+      gap: 50px;
+      text-align: center;
+      width: 100%;
+    }
+  }
+  gap: 50px;
 
   ${horizontalSpacing}
 `;
@@ -128,6 +145,15 @@ export const CollageInfo = styled.div`
   grid-template-rows: repeat(23, 50px);
   width: 100%;
   height: 100%;
+  @media screen and (max-width: 500px) {
+    & {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+    }
+  }
   ${verticalSpacing2}
   ${horizontalSpacing}
 `;
@@ -140,12 +166,11 @@ export const KnowledgeBase = styled.div`
 `;
 
 export const KnowledgeBaseHeading = styled.h1`
-  font-size: 5rem;
-  line-height: 6rem;
+  font-size: clamp(2rem, 4vw, 5rem);
 `;
 
 export const KnowledgeBaseDescription = styled.p`
-  font-size: 1.14rem;
+  font-size: clamp(0.8rem, 3vw, 1.2rem);
   color: ${GREY};
 `;
 
@@ -160,17 +185,40 @@ export const KnowledgeBaseImage = styled.img`
 
 export const FriendlySupport = styled.div`
   grid-column: 2/3;
-  grid-row: 16;
+  grid-row: 15;
+  @media screen and (max-width: 700px) {
+    & {
+      grid-row: 7 !important;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    & {
+      grid-row: 9;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    & {
+      grid-row: 10;
+    }
+  }
+
+  @media screen and (max-width: 1500px) {
+    & {
+      grid-row: 11;
+    }
+  }
+
   ${horizontalSpacing2}
 `;
 
 export const FriendlySupportHeading = styled.h1`
-  font-size: 5rem;
-  line-height: 6rem;
+  font-size: clamp(2rem, 4vw, 5rem);
 `;
 
 export const FriendlySupportDescription = styled.p`
-  font-size: 1.14rem;
+  font-size: clamp(0.8rem, 3vw, 1.2rem);
   color: ${GREY};
 `;
 
@@ -188,4 +236,9 @@ export const ReviewsContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   ${horizontalSpacing}
+  @media screen and (max-width: 700px) {
+    & {
+      flex-direction: column;
+    }
+  }
 `;

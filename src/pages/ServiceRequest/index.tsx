@@ -12,7 +12,7 @@ import PreFooter from 'components/PreFooter';
 import Footer from 'components/common/footer';
 
 const ServiceRequest: React.FC = () => {
-  const [activeKey, setActiveKey] = useState<'1' | '2'>('1');
+  const [activeKey, setActiveKey] = useState<string>('1');
   const tabItems = [
     {
       key: '1',
@@ -38,7 +38,12 @@ const ServiceRequest: React.FC = () => {
         Service Request
       </ServiceRequestImage>
       <ServiceRequestForm>
-        <ServiceFormTabs centered defaultActiveKey="1">
+        <ServiceFormTabs
+          centered
+          defaultActiveKey="1"
+          activeKey={activeKey}
+          onChange={(key) => setActiveKey(key)}
+        >
           {tabItems.map((item) => (
             <ServiceFormTabPane key={item.key} tab={item.label}>
               {item.children}

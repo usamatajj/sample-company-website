@@ -11,6 +11,7 @@ const AppRoutes: React.FC = () => (
     <Route path="/service_request" element={<ServiceRequest />} />
     <Route path="/contact" element={<ContactUs />} />
     <Route path="/about" element={<AboutUs />} />
+    <Route path="*" element={<Home />} />
   </Routes>
 );
 

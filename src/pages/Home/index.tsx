@@ -121,12 +121,6 @@ const reviewsCards: ReviewCardType[] = [
 ];
 
 const Home: React.FC = () => {
-  const onChange = (currentSlideNumber: number) => {
-    console.log(
-      '🚀 ~ file: index.tsx:23 ~ onChange ~ currentSlideNumber:',
-      currentSlideNumber
-    );
-  };
   return (
     <HomePage>
       <CustomCarousel

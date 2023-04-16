@@ -1,12 +1,5 @@
-import React, {
-  ChangeEvent,
-  KeyboardEvent,
-  useCallback,
-  useContext,
-  useState,
-} from 'react';
+import React, { useState } from 'react';
 import logo from 'assets/logos/logo.svg';
-import avatar from 'assets/images/img_avatar.png';
 import {
   HeaderArea,
   NavBar,
@@ -14,28 +7,12 @@ import {
   NavBarControls,
   NavigationLinks,
   CheckLink,
+  HamBurgerMenu,
 } from './Header.styles';
-import { RouterHOCTypes } from 'types';
-import { SearchOutlined } from '@ant-design/icons';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Dropdown, Menu } from 'antd';
-import { ItemType } from 'antd/lib/menu/hooks/useItems';
-import {
-  YOUR_GITHUB_PROFILE,
-  ADD_GIST,
-  PUBLIC_GISTS,
-  YOUR_GISTS,
-  STARRED_GISTS,
-  LOGOUT,
-  LOGIN,
-  SEARCH_NAME,
-  HOME,
-  SERVICE_REQUEST_FORM,
-  ABOUT_US,
-  CONTACT_US,
-  DASHBOARD,
-} from 'constants/index';
+import { DASHBOARD } from 'constants/index';
 import Button from '../Button/Button';
+import { HamBurgerIcon } from 'assets/icons';
 
 type NavigationLinkType = {
   id: string;
@@ -80,6 +57,7 @@ const Header: React.FC = () => {
   // States
   const [username, setUsername] = useState('');
   const navigate = useNavigate();
+  const [openMenu, setOpenMenu] = useState(false);
   const { pathname } = useLocation();
   return (
     <>
@@ -112,9 +90,39 @@ const Header: React.FC = () => {
               {DASHBOARD}
             </Button>
           </NavBarControls>
+
+          <HamBurgerIcon
+            active={openMenu}
+            onClick={() => setOpenMenu(!openMenu)}
+          />
         </NavBar>
       </HeaderArea>
       <div className="under-header"></div>
+      {openMenu && (
+        <HamBurgerMenu>
+          <NavigationLinks>
+            {navigationLinks.map((item) => (
+              <Button
+                key={item.id}
+                width={'200'}
+                height={item.height}
+                size="large"
+                type="link"
+                onClick={() => {
+                  navigate(item.path);
+                }}
+              >
+                <CheckLink active={item.path === pathname}>
+                  {item.title}
+                </CheckLink>
+              </Button>
+            ))}
+          </NavigationLinks>
+          <Button size="large" width="100" type="primary" height="45">
+            {DASHBOARD}
+          </Button>
+        </HamBurgerMenu>
+      )}
     </>
   );
 };

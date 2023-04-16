@@ -1,3 +1,4 @@
+import { GREEN } from 'constants/index';
 import React from 'react';
 export const AnchorIcon = (): JSX.Element => (
   <svg
@@ -156,4 +157,19 @@ export const PinPointIcon = (): JSX.Element => (
       fill="#333333"
     />
   </svg>
+);
+
+export const HamBurgerIcon: React.FC<{
+  active: boolean;
+  onClick: () => void;
+}> = ({ active, onClick }): JSX.Element => (
+  <div
+    className={`hamburger ${active ? 'is-active' : ''}`}
+    id="hamburger-1"
+    onClick={onClick}
+  >
+    <span className="line"></span>
+    <span className="line"></span>
+    <span className="line"></span>
+  </div>
 );

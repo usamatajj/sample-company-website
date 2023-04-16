@@ -1,4 +1,4 @@
-import { GREY, WHITE } from 'constants/index';
+import { GREEN, GREY, WHITE } from 'constants/index';
 import styled, { css } from 'styled-components';
 
 const horizontalSpacing = css`
